@@ -1,0 +1,36 @@
+id: sample_component_info
+label: Sample Component
+package: my_extension
+description: Sample Component to print info
+category: My Extension|My Component
+quality: production
+root_path: "components/sample_component"
+
+source:
+  - path: src/cli_info.c
+
+include:
+  - path: inc
+    file_list:
+      - path: cli_info.h
+
+config_file:
+  - path: config/cli_config.h
+
+requires:
+  - name: cli
+
+template_contribution:
+  - name: cli_command
+    value:
+      name: info
+      handler: cli_info
+      help: Print device unique id
+  - name: event_handler
+    value:
+      event: internal_app_init
+      include: "cli_info.h"
+      handler: "print_sample_app_name"
+    priority: 2000
+  - name: component_catalog
+    value: my_sample_component

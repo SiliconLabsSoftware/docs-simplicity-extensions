@@ -1,0 +1,79 @@
+project_name: example_soc_app
+package: my_extension
+quality: production
+label: My Extension - SoC Example App
+description: "This example project shows how to blink an LED in a bare-metal configuration. Or with a CLI command"
+category: Example|My Extension
+
+source:
+  - path: src/app.c
+  - path: main.c
+  - path: src/blink.c
+include:
+  - path: inc
+    file_list:
+    - path: app.h
+    - path: blink.h
+
+sdk_extension:
+  - id: my_extension
+    version: 1.0.0
+
+component:
+  - id: sl_system
+  - id: device_init
+  - id: sleeptimer
+  - id: simple_led
+    instance: [led0, led1]
+  - id: cli
+    instance: [example]
+  - id: printf
+  - id: iostream_recommended_stream
+  - id: sample_component_info
+    from: my_extension
+
+requires:
+  - name: iostream_retarget_stdio
+
+define:
+  - name: DEBUG_EFM
+readme:
+  - path: doc/readme.md
+ui_hints:
+  highlight: readme.md
+
+configuration:
+  - name: SL_BOARD_ENABLE_VCOM
+    value: "1"
+  - name: SL_CLI_LOCAL_ECHO
+    value: "(1)"
+  - name: SL_IOSTREAM_USART_VCOM_CONVERT_BY_DEFAULT_LF_TO_CRLF
+    value: "(1)"
+  - name: SL_IOSTREAM_USART_VCOM_FLOW_CONTROL_TYPE
+    value: "usartHwFlowControlNone"
+  - name: SL_IOSTREAM_EUSART_VCOM_CONVERT_BY_DEFAULT_LF_TO_CRLF
+    value: "(1)"
+  - name: SL_IOSTREAM_EUSART_VCOM_FLOW_CONTROL_TYPE
+    value: "eusartHwFlowControlNone"
+  - name: SAMPLE_APP_NAME
+    value: "Example Sample application"
+
+template_contribution:
+#------------------ CLI commands ---------------------
+  - name: cli_command
+    value:
+      name: toggle
+      handler: toggle_led
+      help: Toggle the LED1
+
+tag:
+  - hardware:component:led:2+
+  - hardware:component:vcom
+
+filter:
+  - name: "Device Type"
+    value: ["SoC"]
+  - name: "MCU"
+    value: ["32-bit MCU"]
+  - name: "Project Difficulty"
+    value: ["Beginner"]

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='ASCII'?>
+<model:MDescriptors xmlns:model="http://www.silabs.com/ss/Studio.ecore">
+
+  <descriptors name="example_app" label="My Extension - SoC Example App" description="This example project shows how to blink an LED in a bare-metal configuration. Or with a CLI command">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="solutionReferenceId" value="example_extension.examples.example_soc_app.example_soc_app.slcp"/>
+    <properties key="projectFilePaths" value="example_extension\examples\example_soc_app\example_soc_app.slcp"/>
+    <properties key="readmeFiles" value="doc/readme.md"/>
+    <properties key="boardCompatibility" value=".* com.silabs.board.none"/>
+    <properties key="partCompatibility" value=".*"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide simplicity-ide visual-studio-code"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="Example|My Extension"/>
+    <properties key="quality" value="PRODUCTION"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+    <properties key="filters" value="Device\ Type|SoC MCU|32-bit\ MCU Project\ Difficulty|Beginner"/>
+  </descriptors>
+
+</model:MDescriptors>

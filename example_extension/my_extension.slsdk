@@ -1,0 +1,9 @@
+# Properties file for Simplicity Studio metadata.
+id=com.example.sdk.my_extension
+label=My Extension
+description=Tutorial extension for SiSDK Suite
+version=1.0.0
+prop.subLabel=My_Extension\\ 1.0.0
+
+# General properties are prepended with "prop."
+prop.file.templatesFile=templates.xml

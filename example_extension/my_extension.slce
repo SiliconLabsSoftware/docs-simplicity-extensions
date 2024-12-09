@@ -1,0 +1,10 @@
+id: my_extension
+label: My Extension
+description: >
+  Tutorial extension for SiSDK Suite
+version: 1.0.0
+sdk:
+  id: simplicity_sdk
+  version: 2024.6.2
+component_path:
+- path: components
